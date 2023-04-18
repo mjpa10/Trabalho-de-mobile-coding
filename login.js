@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import {TouchableOpacity, TextInput, StyleSheet, Text, View } from 'react-native';
-import { Fontisto, Entypo } from '@expo/vector-icons'; 
+import {TouchableOpacity, TextInput, StyleSheet, Text, View, ImageBackground} from 'react-native';
+import { Fontisto, Entypo } from '@expo/vector-icons';
 
 import Button from './components/button_login';
+
 
 export default function App() {
 
@@ -13,6 +14,12 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+        <ImageBackground
+        source={require('./Background3.png')}
+        style={styles.background}
+        >
+  <View style={styles.container2}>
+     <View style={styles.wrapper}>
       <Text style={styles.bold}>Login</Text>  
 
     <View style={styles.email}>
@@ -42,9 +49,13 @@ export default function App() {
       </View>
 
     <View>
-     <Button labelButton="Login" onpress={Login}/>
+      <Button labelButton="Login" onpress={Login}/>
      </View>
+     </View>
+     </View>
+    </ImageBackground>
     </View>
+     
   );
 }
 
@@ -54,6 +65,24 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    width:'100%',
+  },
+
+  container2:{
+    flex:0,
+    marginTop:300,
+    paddingLeft:0, 
+    padding:20,  
+    opacity:0.8,
+    backgroundColor:'#FFFFFF',
+    borderRadius:90,   
+    borderWidth:1,
+    borderColor:'lightgrey',
+
+  },
+  wrapper:{
+      justifyContent:'center',
+      alignItems:'center',
   },
 
   bold:{
@@ -70,6 +99,7 @@ const styles = StyleSheet.create({
   paddingLeft:40,
   fontSize:14,  
   margin: 10,
+  
  
   },
 
@@ -91,6 +121,9 @@ const styles = StyleSheet.create({
   email: {
     flexDirection:'row',
      marginLeft:20,
+  },
+  background:{
+   flex:1,
   },
 
 });
